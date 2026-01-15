@@ -2,6 +2,9 @@
 
 int main()
 {
-    Zombie Z;
-    Z.randomChump("Foo");
+    Zombie *Z;
+    randomChump("Foo");
+    Z = newZombie("Fee");
+    delete Z;
+    return 0;
 }

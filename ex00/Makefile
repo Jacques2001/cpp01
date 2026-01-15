@@ -9,7 +9,7 @@ BLUE	= \033[0;34m
 CYAN	= \033[0;36m
 RESET	= \033[0m
 
-SRCS        = 	main.cpp Zombie.cpp
+SRCS        = 	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 OBJS        = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
