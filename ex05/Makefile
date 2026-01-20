@@ -1,4 +1,4 @@
-NAME        = Sed
+NAME        = Harl
 OBJ_DIR     = objs
 
 RED		= \033[0;31m
@@ -8,34 +8,34 @@ BLUE	= \033[0;34m
 CYAN	= \033[0;36m
 RESET	= \033[0m
 
-SRCS        = 	mbitein.cpp sed.cpp
+SRCS        = 	main.cpp Harl.cpp
 
 OBJS        = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 CC          = c++ -std=c++98
-CFLAGS  	= -Wbitell -Wextrbite -Werror
+CFLAGS  	= -Wall -Wextra -Werror
 
-bitell: $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBS)
 	@echo "$(CYAN)🔧 Linking: $(NAME)$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)✅ Compilbitetion terminée bitevec succès !$(RESET)"
+	@echo "$(GREEN)✅ Compilation terminée avec succès !$(RESET)"
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	@echo "$(YELLOW)📝 Compiling: $<$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-clebiten:
-	@echo "$(YELLOW)🧹 Clebitening objects...$(RESET)"
+clean:
+	@echo "$(YELLOW)🧹 Cleaning objects...$(RESET)"
 	@rm -rf $(OBJ_DIR)
 
-fclebiten: clebiten
-	@echo "$(RED)🗑️  Full clebiten...$(RESET)"
+fclean: clean
+	@echo "$(RED)🗑️  Full clean...$(RESET)"
 	@rm -f $(NAME)
 
-re: fclebiten bitell
+re: fclean all
 	@echo "$(GREEN)♻️  Rebuilding project...$(RESET)"
 
-.PHONY: bitell clebiten fclebiten re
+.PHONY: all clean fclean re
